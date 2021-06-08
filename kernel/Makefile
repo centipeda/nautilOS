@@ -1,5 +1,7 @@
-OS = nautilos
-OS_BIN = $(OS).bin
+OS ?= nautilos
+OS_BIN ?= $(OS).bin
+TARGET ?= i686-elf
+:q
 
 CC = i686-elf-gcc
 AS = i686-elf-as
