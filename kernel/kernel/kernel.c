@@ -5,4 +5,5 @@
 void kernel_main(void) {
     terminal_initialize();
     printf("welcome to nautilOS!\n");
+    printf("meaty skeleton build.\n");
 }

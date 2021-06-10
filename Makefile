@@ -7,7 +7,8 @@ export AS=$(HOST)-as
 export CC=$(HOST)-gcc
 
 ISODIR = isodir
-SRCDIR = kernel
+KERNELDIR = kernel
+LIBCDIR = libc
 export OS = nautilos
 export OS_ISO = $(OS).iso
 export OS_KERNEL = $(SRCDIR)/$(OS).kernel
@@ -34,7 +35,7 @@ all: libc $(OS_ISO)
 
 $(OS_ISO): $(OS_KERNEL) grub.cfg
 	mkdir -p $(ISODIR)/boot/grub
-	cp $(SRCDIR)/$(OS_KERNEL) $(ISODIR)/boot
+	cp $(KERNELDIR)/$(OS_KERNEL) $(ISODIR)/boot
 	cp grub.cfg $(ISODIR)/boot/grub
 	grub-mkrescue -o $(OS_ISO) $(ISODIR)
 
@@ -52,6 +53,7 @@ clean:
 	rm -f $(OS_ISO)
 	rm -rf $(ISODIR)
 	$(MAKE) -C kernel clean
+	$(MAKE) -C libc clean
 
 run:
 	qemu-system-i386 -cdrom $(OS_ISO)
