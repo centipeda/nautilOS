@@ -12,6 +12,7 @@ a toy operating system
     1. set up GDT
     1. set up IDT
     1. set up ISRs
+- set up a proper libc
 - activate graphics mode
 - turn on paging
 - set up memory allocation

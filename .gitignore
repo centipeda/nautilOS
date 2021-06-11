@@ -1,7 +1,9 @@
 *.o
-isodir/
 *.iso
 *.bin
-sysroot/
 *.d
 *.a
+*.kernel
+sysroot/
+isodir/
+tmp/
